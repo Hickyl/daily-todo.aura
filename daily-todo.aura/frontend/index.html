@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/svg" href="favicon.svg">
+    <title>daily-todo.aura</title>
+    <script src="data.js" defer></script>
+    <script src="script.js" defer></script>
+
+</head>
+
+<body>
+    <div id="auth-screen">
+        <div class="auth-toggle">
+            <button id="show-login" class="active">Login</button>
+            <button id="show-register">Registration</button>
+        </div>
+        <form id="login-form" class="auth-form">
+            <h2>Login</h2>
+
+            <label for="username-login">Username:</label>
+            <input type="text" id="username-login" placeholder="enter username" name="login-username" required>
+
+            <label for="password-login">Password:</label>
+            <input type="password" id="password-login" autocomplete="current-password" placeholder="enter password"
+                name="login-password" required>
+
+            <input type="checkbox" id="remember" name="remember">
+            <label for="remember">Remember me</label>
+
+            <button type="submit">Sign In</button>
+
+            <button id="reset-password" type="button">Forgot password?</button>
+        </form>
+
+        <form id="register-form" class="auth-form" style="display:none">
+            <h2>Create Account</h2>
+
+            <label for="username-regist">Username:</label>
+            <input type="text" id="username-regist" placeholder="enter username" name="register-username" required>
+
+            <label for="password-regist">Password:</label>
+            <input type="password" id="password-regist" autocomplete="new-password" placeholder="enter password"
+                name="register-password" minlength="8" required>
+
+            <button type="submit">Register</button>
+        </form>
+    </div>
+
+    <div id="app-screen" style="display:none">
+
+        <h1 id="daily-todo">DAILY MISSIONS</h1>
+
+        <div class="input-row">
+            <input type="text" id="input-task" placeholder="add task:">
+
+            <input type="number" min="1" max="20" id="input-xp" placeholder="how many xp:">
+
+            <button id="add-task-xp">initialize quest</button>
+        </div>
+        <p id="title-all-tasks">CURRENT OBJECTIVES</p>
+
+        <div id="all-tasks-list"></div>
+
+        <div id="show-level"></div>
+
+        <div id="show-xp"></div>
+
+        <button id="reset-btn">start from the beginning</button>
+        <button id="logout-btn">logout</button>
+    </div>
+
+
+</body>
+
+</html>
