@@ -58,7 +58,7 @@ async function sendToServer(task) {
     if (!token) {
         throw new Error("Not authenticated");
     }
-    let res = await fetch("http://127.0.0.1:5000/api/tasks", {
+    let res = await fetch("https://siyahil.pythonanywhere.com/api/tasks", {
         method: "POST",
         headers: { "Content-Type": "application/json", "Authorization": token },
         body: JSON.stringify({
@@ -81,7 +81,7 @@ async function deleteFromServer(task) {
     if (!token) {
         throw new Error("Not authenticated");
     }
-    let res = await fetch(`http://127.0.0.1:5000/api/tasks/${task.id}`, {
+    let res = await fetch(`https://siyahil.pythonanywhere.com/api/tasks/${task.id}`, {
         method: "DELETE",
         headers: { "Content-Type": "application/json", "Authorization": token }
     });
@@ -100,7 +100,7 @@ async function completeFromServer(task) {
     if (!token) {
         throw new Error("Not authenticated");
     }
-    let res = await fetch(`http://127.0.0.1:5000/api/tasks/${task.id}/complete`, {
+    let res = await fetch(`https://siyahil.pythonanywhere.com/api/tasks/${task.id}/complete`, {
         method: "POST",
         headers: { "Content-Type": "application/json", "Authorization": token }
     });
@@ -115,7 +115,7 @@ async function checkLogin(username, password) {
     if (!isOnline()) {
         throw new Error("No network");
     }
-    let res = await fetch("http://127.0.0.1:5000/login", {
+    let res = await fetch("https://siyahil.pythonanywhere.com/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -136,7 +136,7 @@ async function checkRegister(username, password) {
     if (!isOnline()) {
         throw new Error("No network");
     }
-    let res = await fetch("http://127.0.0.1:5000/register", {
+    let res = await fetch("https://siyahil.pythonanywhere.com/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -220,7 +220,7 @@ async function completeTask(id) {
         if (isOnline()) {
             try {
                 let token = localStorage.getItem("authToken");
-                let res = await fetch(`http://127.0.0.1:5000/api/tasks/${task.id}/complete`, {
+                let res = await fetch(`https://siyahil.pythonanywhere.com/api/tasks/${task.id}/complete`, {
                     method: "POST",
                     headers: { "Content-Type": "application/json", "Authorization": token },
                 })
@@ -252,7 +252,7 @@ async function deleteTask(id) {
         if (isOnline()) {
             try {
                 let token = localStorage.getItem("authToken")
-                let res = await fetch(`http://127.0.0.1:5000/api/tasks/${task.id}`, {
+                let res = await fetch(`https://siyahil.pythonanywhere.com/api/tasks/${task.id}`, {
                     method: "DELETE",
                     headers: { "Content-Type": "application/json", "Authorization": token },
                 })
