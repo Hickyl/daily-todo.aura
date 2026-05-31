@@ -145,7 +145,7 @@ async function handleLogin(e) {
     e.preventDefault();
     const username = logNameInt.value;
     const password = logPassInt.value;
-    const res = await fetch("http://127.0.0.1:5000/login",
+    const res = await fetch("https://siyahil.pythonanywhere.com/login",
         {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -167,7 +167,7 @@ async function handleRegister(e) {
     e.preventDefault();
     const username = regNameInt.value;
     const password = regPassInt.value;
-    const res = await fetch("http://127.0.0.1:5000/register",
+    const res = await fetch("https://siyahil.pythonanywhere.com/register",
         {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -213,7 +213,7 @@ resPass.addEventListener("click", () => {
 //LOAD FROM PYTHON
 async function loadTasksFromAPI() {
     try {
-        const res = await fetch("http://127.0.0.1:5000/api/tasks", {
+        const res = await fetch("https://siyahil.pythonanywhere.com/api/tasks", {
             method: "GET",
             headers: { "Content-Type": "application/json", ...getAuthHeader() },
         });
@@ -248,7 +248,7 @@ async function loadTasksFromAPI() {
 //GET FROM PYTHON
 async function loadStatsFromAPI() {
     try {
-        const res = await fetch("http://127.0.0.1:5000/api/stats", {
+        const res = await fetch("https://siyahil.pythonanywhere.com/api/stats", {
             method: "GET",
             headers: { "Content-Type": "application/json", ...getAuthHeader() },
         });
