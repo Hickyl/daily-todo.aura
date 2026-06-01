@@ -69,7 +69,7 @@ function renderXP(xp) {
 
 //SHOW LEVEL
 function renderLevel(level) {
-    let valueToShow = (level !== undefined) ? xp : getLevel();
+    let valueToShow = (level !== undefined) ? level : getLevel();
     showLevel.textContent = `level: ${valueToShow}, you are ${getLevelName(valueToShow)}`;
 }
 
