@@ -164,7 +164,7 @@ def tasks():
             return jsonify({"error": "user not found"}), 403
         user_id = cursor["id"]
         conn.execute("INSERT INTO tasks (name, xp, user_id) VALUES (?,?,?)", (name, xp, user_id) )
-        new_task_id = conn.lastrowid
+        new_task_id = conn.execute("SELECT last_insert_rowid()").fetchone()[0]
         conn.commit()
     finally:
         conn.close()
